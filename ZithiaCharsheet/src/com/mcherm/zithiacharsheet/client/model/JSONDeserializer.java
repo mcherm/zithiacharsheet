@@ -201,10 +201,17 @@ public class JSONDeserializer {
         JSONValue fieldValue = inputObject.get(fieldName);
         if (fieldValue != null) {
             JSONObject fieldObject = notNull(fieldValue.isObject());
+            updateFromField(fieldObject, "raceCost", zithiaCosts.getRaceCost());
             updateFromField(fieldObject, "statCost", zithiaCosts.getStatCost());
             updateFromField(fieldObject, "skillCost", zithiaCosts.getSkillCost());
             updateFromField(fieldObject, "weaponSkillCost", zithiaCosts.getWeaponSkillCost());
             updateFromField(fieldObject, "totalCost", zithiaCosts.getTotalCost());
+            updateFromField(fieldObject, "basePts", zithiaCosts.getBasePts());
+            updateFromField(fieldObject, "loanPts", zithiaCosts.getLoanPts());
+            updateFromField(fieldObject, "expSpent", zithiaCosts.getExpSpent());
+            updateFromField(fieldObject, "expEarned", zithiaCosts.getExpEarned());
+            updateFromField(fieldObject, "paidForLoan", zithiaCosts.getPaidForLoan());
+            updateFromField(fieldObject, "expUnspent", zithiaCosts.getExpUnspent());
         }
     }
     
@@ -215,6 +222,16 @@ public class JSONDeserializer {
         updateFromField(fieldObject, "player", names.getPlayerName());
     }
     
+    protected void updateFromField(JSONObject inputObject, String fieldName, CharacterNotes notes) {
+        JSONValue fieldValue = inputObject.get(fieldName);
+        if (fieldValue == null) {
+            notes.getBackground().setValue("");
+        } else {
+            JSONObject fieldObject = notNull(fieldValue.isObject());
+            updateFromField(fieldObject, "background", notes.getBackground());
+        }
+    }
+
     public void update(JSONValue inputValue, ZithiaCharacter zithiaCharacter) {
         JSONObject inputObject = notNull(inputValue.isObject());
         updateFromField(inputObject, "names", zithiaCharacter.getNames());
@@ -223,6 +240,7 @@ public class JSONDeserializer {
         updateFromField(inputObject, "weaponTraining", zithiaCharacter.getWeaponTraining());
         updateFromField(inputObject, "talentList", zithiaCharacter.getTalentList());
         updateFromField(inputObject, "costs", zithiaCharacter.getCosts());
+        updateFromField(inputObject, "notes", zithiaCharacter.getCharacterNotes());
     }
 
 }
