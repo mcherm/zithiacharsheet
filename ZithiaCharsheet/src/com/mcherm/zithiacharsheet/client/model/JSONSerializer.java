@@ -197,10 +197,17 @@ public class JSONSerializer extends JSONSerializerBase {
     protected void serialize(String fieldName, ZithiaCosts zithiaCosts) {
         emitStartDictItem(fieldName);
         emitStartDict();
+        serialize("raceCost", zithiaCosts.getRaceCost());
         serialize("statCost", zithiaCosts.getStatCost());
         serialize("skillCost", zithiaCosts.getSkillCost());
         serialize("weaponSkillCost", zithiaCosts.getWeaponSkillCost());
         serialize("totalCost", zithiaCosts.getTotalCost());
+        serialize("basePts", zithiaCosts.getBasePts());
+        serialize("loanPts", zithiaCosts.getLoanPts());
+        serialize("expSpent", zithiaCosts.getExpSpent());
+        serialize("expEarned", zithiaCosts.getExpEarned());
+        serialize("paidForLoan", zithiaCosts.getPaidForLoan());
+        serialize("expUnspent", zithiaCosts.getExpUnspent());
         emitEndDict();
     }
     
@@ -212,6 +219,15 @@ public class JSONSerializer extends JSONSerializerBase {
         emitEndDict();
     }
     
+    protected void serialize(String fieldName, CharacterNotes notes) {
+        if (notes.getBackground().getValue().length() != 0) {
+            emitStartDictItem(fieldName);
+            emitStartDict();
+            serialize("background", notes.getBackground());
+            emitEndDict();
+        }
+    }
+
     public void serialize(ZithiaCharacter zithiaCharacter) {
         emitStartDict();
         serialize("names", zithiaCharacter.getNames());
@@ -220,6 +236,7 @@ public class JSONSerializer extends JSONSerializerBase {
         serialize("weaponTraining", zithiaCharacter.getWeaponTraining());
         serialize("talentList", zithiaCharacter.getTalentList());
         serialize("costs", zithiaCharacter.getCosts());
+        serialize("notes", zithiaCharacter.getCharacterNotes());
         emitEndDict();
     }
     

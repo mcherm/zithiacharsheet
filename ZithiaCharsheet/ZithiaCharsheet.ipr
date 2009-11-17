@@ -296,12 +296,19 @@
   <component name="ProjectDictionaryState">
     <dictionary name="mcherm">
       <words>
+        <w>async</w>
         <w>charsheet</w>
         <w>charsheets</w>
         <w>datastore</w>
+        <w>deserializer</w>
+        <w>fixme</w>
+        <w>formatters</w>
+        <w>internationalizable</w>
         <w>javac</w>
         <w>metadata</w>
+        <w>outdent</w>
         <w>threadsafe</w>
+        <w>toolbar's</w>
         <w>tweakable</w>
         <w>unescape</w>
         <w>xstart</w>
@@ -342,11 +349,6 @@
     <option name="ALTERNATIVE_WORKING_PATH" value="" />
     <option name="LOCK_ON_CHECKOUT" value="false" />
     <option name="UNLOCK_ON_CHECKIN" value="false" />
-  </component>
-  <component name="StructureViewFactory">
-    <option name="AUTOSCROLL_MODE" value="true" />
-    <option name="AUTOSCROLL_FROM_SOURCE" value="false" />
-    <option name="ACTIVE_ACTIONS" value="" />
   </component>
   <component name="SvnBranchConfigurationManager">
     <option name="mySupportsUserInfoFilter" value="true" />
