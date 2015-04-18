@@ -1,0 +1,1 @@
+This is a tool for tracking character sheets and other world information for the Zithia role playing game. It is a GWT-based web UI that runs under Google's AppEngine.
